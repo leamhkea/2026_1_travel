@@ -1,0 +1,43 @@
+{% include "_header.html" %}
+
+<main>
+  <form id="formLogin" mix-post="/api-login" autocomplete="off">
+    <!-- Container for email -->
+    <div class="div_formfield">
+      <label for=""> Email </label>
+      <input
+        id="email"
+        name="user_email"
+        type="email"
+        placeholder="user email"
+        mix-validate="{{x.REGEX_USER_EMAIL}}"
+      />
+    </div>
+
+    <!-- Container for password -->
+    <div class="div_formfield">
+      <label for="">
+        Password
+        <span
+          >{{ x.USER_PASSWORD_MIN }} to {{ x.USER_PASSWORD_MAX }}
+          characters</span
+        >
+      </label>
+      <input
+        id="password"
+        type="password"
+        name="user_password"
+        placeholder="user password"
+        mix-validate="{{x.REGEX_USER_PASSWORD}}"
+      />
+    </div>
+
+    <ul id="errors"></ul>
+
+    <button>Login</button>
+  </form>
+</main>
+
+{% include "_footer.html" %}
+
+<script type="module" src="/dist/login.js"></script>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/app.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="tooltip"></div>
+    <nav>
+      <a href="/">Home</a>
+
+      <a href="/all-destinations">All travel destinations</a>
+
+      <!-- Makes sure, user can only create destination if logged in -->
+      {% if user %}
+      <a href="/create-destination">Create destination</a>
+      {% endif %}
+
+      <!-- Makes the header dynamic, so it show the state if logged in or not -->
+      {% if not user %}
+      <a href="/signup">Signup</a>
+
+      {% else %}
+      <a href="/profile">My destinations</a>
+
+      {% endif %}
+
+      <!-- Makes the header dynamic, so it show the state if logged in or not -->
+      {% if not user %}
+      <a href="/login">Login</a>
+
+      {% else %}
+      <a href="/logout">Logout</a>
+
+      {% endif %}
+    </nav>
+  </body>
+</html>

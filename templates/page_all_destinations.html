@@ -1,0 +1,24 @@
+{% include "_header.html" %}
+
+<main>
+  <h1>All travel destinations</h1>
+
+  <div class="destination-wrapper">
+    {% for destination in destinations %}
+    <div class="destination-card">
+      <h2>{{ destination.destination_title }}</h2>
+      <p>
+        {{ destination.destination_country }} - {{
+        destination.destination_location }}
+      </p>
+      <p>{{ destination.destination_description }}</p>
+      <p>
+        {{ destination.destination_date_from }} → {{
+        destination.destination_date_to }}
+      </p>
+    </div>
+    {% endfor %}
+  </div>
+</main>
+
+{% include "_footer.html" %}

@@ -1,0 +1,97 @@
+{% include "_header.html" %}
+
+<main>
+  <h1>Create a new travel destination</h1>
+
+  <form
+    id="formDestination"
+    mix-post="/api-create-destination"
+    autocomplete="off"
+  >
+    <!-- <div id="tooltip"></div> -->
+
+    <!-- Container for title -->
+    <div class="div_formfield">
+      <label>
+        Title
+        <span
+          >{{ x.DESTINATION_TITLE_MIN }} to {{ x.DESTINATION_TITLE_MAX }}
+          characters</span
+        >
+      </label>
+      <input
+        id="title"
+        name="destination_title"
+        type="text"
+        placeholder="destination title"
+        mix-validate="{{ x.REGEX_DESTINATION_TITLE }}"
+      />
+    </div>
+
+    <!-- Container for country -->
+    <div class="div_formfield">
+      <label>
+        Country
+        <span
+          >{{ x.DESTINATION_COUNTRY_MIN }} to {{ x.DESTINATION_COUNTRY_MAX }}
+          characters</span
+        >
+      </label>
+      <input
+        id="country"
+        name="destination_country"
+        type="text"
+        placeholder="destination country"
+        mix-validate="{{ x.REGEX_DESTINATION_COUNTRY }}"
+      />
+    </div>
+
+    <!-- Container for location -->
+    <div class="div_formfield">
+      <label>
+        Location
+        <span
+          >{{ x.DESTINATION_LOCATION_MIN }} to {{ x.DESTINATION_LOCATION_MAX }}
+          characters</span
+        >
+      </label>
+      <input
+        id="location"
+        name="destination_location"
+        type="text"
+        placeholder="destination location"
+        mix-validate="{{ x.REGEX_DESTINATION_LOCATION }}"
+      />
+    </div>
+
+    <!-- Container for description -->
+    <div class="div_formfield">
+      <label>Description</label>
+      <textarea
+        id="description"
+        name="destination_description"
+        placeholder="destination description"
+      ></textarea>
+    </div>
+
+    <!-- Container for date from -->
+    <div class="div_formfield">
+      <label>Date from</label>
+      <input id="datefrom" name="destination_date_from" type="date" />
+    </div>
+
+    <!-- Container for date to -->
+    <div class="div_formfield">
+      <label>Date to</label>
+      <input id="dateto" name="destination_date_to" type="date" />
+    </div>
+
+    <ul id="errors"></ul>
+
+    <button>Create destination</button>
+  </form>
+</main>
+
+{% include "_footer.html" %}
+
+<script type="module" src="/dist/create_destination.js"></script>
